@@ -1,0 +1,16 @@
+<div id="print">
+    <h1>{{course.name}}</h1>
+
+    <table class="table">
+        <tr>
+            <td><strong>Student</strong></td>
+            <td ng-repeat="task in course.Tasks"><strong>{{task.name}}</strong></td>
+        </tr>
+        <tr ng-repeat="fulfilment in fulfilments">
+            <td><strong>{{fulfilment.studentNumber}}</strong></td>
+            <td ng-repeat="task in course.Tasks">{{searchFulfilment(fulfilment, task)}}&nbsp;/&nbsp;{{task.maxPoints}}</td>
+        </tr>
+    </table>
+</div>
+
+<button ng-click="print()" class="btn btn-primary">Print</button>

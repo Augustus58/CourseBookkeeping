@@ -1,0 +1,28 @@
+<h1>{{course.name}}</h1>
+<h2>Fulfilments</h2>
+
+
+<table class="table">
+    <tr>
+        <td><strong>Student</strong></td>
+        <td ng-repeat="task in course.Tasks"><strong>{{task.name}}</strong></td>
+    </tr>
+    <tr ng-repeat="fulfilment in fulfilments">
+        <td><strong>{{fulfilment.studentNumber}}</strong></td>
+        <td ng-repeat="task in course.Tasks">{{searchFulfilment(fulfilment, task)}}&nbsp;/&nbsp;{{task.maxPoints}}</td>
+    </tr>
+    <tr>
+        <td><input class="form-control" ng-model="newFulfilment.studentNumber"></td>
+        <td ng-repeat="task in course.Tasks"><div class="input-group"><input class="form-control" ng-model="newFulfilment.taskFulfilments[task.id].points"><div class="input-group-addon">/&nbsp;{{task.maxPoints}}</div></div></td>
+    </tr>
+</table>
+
+
+
+<p ng-show="errorMessage">
+    {{errorMessage}}
+</p>
+
+<button ng-click="add()" class="btn btn-primary">Add</button>
+
+<button ng-click="printAll()" class="btn btn-primary">Print all fulfilments</button>

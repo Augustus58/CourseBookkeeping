@@ -1,0 +1,22 @@
+<h1>Courses</h1>
+
+<table class="table">
+    <tr>
+        <td><strong>Name</strong></td>
+    </tr>
+    <tr ng-repeat="course in courses">
+        <td><a ng-href="#courses/{{course.id}}">{{course.name}}</a></td>
+    </tr>
+    <tr>
+        <td>
+            <form class="form-inline">
+                <input ng-model="newCourse.name" class="form-control">
+                <button ng-click="add()" class="btn btn-primary">Add</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<p ng-show="errorMessage">
+    {{errorMessage}}
+</p>

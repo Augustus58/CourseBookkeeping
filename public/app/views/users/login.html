@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1>Log in</h1>
+</div>
+
+<form>
+  <div class="form-group">
+    <label>Username</label>
+    <input ng-model="user.username" type="text" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Password</label>
+    <input ng-model="user.password" type="password" class="form-control">
+  </div>
+
+    <button ng-click="login()" class="btn btn-primary">Log in</button>
+    
+    <p ng-show="errorMessage">
+        {{errorMessage}}
+    </p>
+</form>

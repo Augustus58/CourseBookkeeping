@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Course bookkeeping</title>
+
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Angularin lähdekoodit -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+        <!-- Oman sovelluksen lähdekoodit -->
+        <script src="app/app.js"></script>
+        <script src="app/services/api.js"></script>
+        <script src="app/controllers/courses_controller.js"></script>
+        <script src="app/controllers/show_course_controller.js"></script>
+        <script src="app/controllers/fulfilments_controller.js"></script>
+        <script src="app/controllers/users_controller.js"></script>
+        
+    </head>
+    <body ng-app="CbkApp">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/">Course bookkeeping</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/">Courses</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-if="userLoggedIn"><a ng-click="logOut()" style="cursor: pointer">Log out</a></li>
+                        <li ng-if="!userLoggedIn"><a href="#/login">Log in</a></li>
+                        <li ng-if="!userLoggedIn"><a href="#/register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="main-container" ng-view></div>
+    </body>
+</html>
