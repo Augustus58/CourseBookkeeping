@@ -23,7 +23,7 @@ router.get('/:id', function (req, res, next) {
 router.get('/:id/fulfilments', function (req, res, next) {
     var courseId = req.params.id;
     Models.CourseFulfilment.findAll({
-        where: {Courseid: courseId},
+        where: {CourseId: courseId},
         include: {model: Models.TaskFulfilment,
             include: {model: Models.Task}}
     }).then(function (data) {
